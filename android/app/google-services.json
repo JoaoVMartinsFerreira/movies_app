@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:409849277551:android:b1b36a60361a1e3d5ef19a",
         "android_client_info": {
-          "package_name": "com.moviesapp.app"
+          "package_name": "br.com.flutterprojects.movies_app"
         }
       },
       "oauth_client": [],
