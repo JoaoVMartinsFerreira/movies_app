@@ -11,4 +11,7 @@ class AssetsPathsConst {
 
   static String get animationSplash =>
       '$_animationFolder/34590-movie-theatre.json';
+      
+  static String get animationLogin =>
+      '$_animationFolder/26406-clapperboard.json';
 }
