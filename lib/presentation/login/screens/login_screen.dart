@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/widgets/buttons/button_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = '/login';
@@ -6,6 +7,8 @@ class LoginScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(child: ButtonWidget(label: 'Login', onPressed: (){},),),
+    );
   }
 }
