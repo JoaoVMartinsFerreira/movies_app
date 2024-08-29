@@ -4,7 +4,7 @@ mixin LoginFocusNodesMixin {
  final emailFN = FocusNode();
  final passwordFN = FocusNode();
 
-  void dispose(){
+  void disposeFN(){
    emailFN.dispose();
    passwordFN.dispose(); 
   }
