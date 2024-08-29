@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/config/firebase_movies_app_colors.dart';
 import 'package:movies_app/core/widgets/sized_box/sized_box_widget.dart';
@@ -11,7 +12,7 @@ class TextFormFieldWidget extends StatefulWidget {
   final bool isPassword;
   final TextInputType textInputType;
   final TextInputAction? textInputAction;
-  final void Function(String)? onSubmited;
+  final void Function(String)? onFieldSubmited;
   final ValueNotifier<bool> _isPasswordVN;
 
   TextFormFieldWidget({
@@ -23,7 +24,7 @@ class TextFormFieldWidget extends StatefulWidget {
     this.isPassword = false,
     this.textInputType = TextInputType.text,
     this.textInputAction,
-    this.onSubmited,
+    this.onFieldSubmited,
   }) : _isPasswordVN =
             ValueNotifier<bool>(isPassword); // para saber se é true ou false
 
@@ -73,7 +74,7 @@ class _TextFormFieldState extends State<TextFormFieldWidget> {
               ),
               keyboardType: widget.textInputType,
               autocorrect: false,
-              onFieldSubmitted: widget.onSubmited,
+              onFieldSubmitted: widget.onFieldSubmited,
               textInputAction: widget.textInputAction,
               decoration: InputDecoration(
                 filled: true,
