@@ -1,24 +1,21 @@
-class MovieModel {
-  final int id;
-  final String title;
-  final String imagePath;
-  final String overview;
-  final DateTime releaseDate;
-  final num voteAverage;
-  final String? videoId;
+import 'package:movies_app/data/models/movie_model.dart';
 
-  MovieModel({
-    required this.id,
-    required this.title,
-    required this.imagePath,
-    required this.overview,
-    required this.releaseDate,
-    required this.voteAverage,
-    this.videoId,
+class FavoriteMovieModel extends MovieModel {
+  final String favoriteId;
+  FavoriteMovieModel({
+    required this.favoriteId,
+    required super.id,
+    required super.title,
+    required super.imagePath,
+    required super.overview,
+    required super.releaseDate,
+    required super.voteAverage,
+    super.videoId,
   });
 
-  factory MovieModel.fromMap(Map<String, dynamic> map) {
-    return MovieModel(
+  factory FavoriteMovieModel.fromMap(Map<String, dynamic> map, String favoriteId) {
+    return FavoriteMovieModel(
+      favoriteId: favoriteId,
       id: map['id'] as int,
       title: map['title'] as String,
       imagePath: map['poster_path'] as String,
@@ -28,7 +25,8 @@ class MovieModel {
       videoId: map['videoKey'],
     );
   }
-
+  
+  @override
   Map<String, dynamic> toMap(){
     return <String,dynamic>{
       'id': id,
