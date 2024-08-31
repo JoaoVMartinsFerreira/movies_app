@@ -5,7 +5,7 @@ import 'package:movies_app/core/widgets/texts/text_widget.dart';
 enum MessageType { success, error }
 
 mixin SnackBarMixin {
-  void showSnackBBar(
+  void showSnackBar(
       BuildContext context, String message, MessageType messageType) {
     ScaffoldMessenger.of(context)
       ..clearSnackBars()

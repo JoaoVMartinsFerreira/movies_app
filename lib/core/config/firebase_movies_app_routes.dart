@@ -23,8 +23,8 @@ class FirebaseMoviesAppRoutes {
       LoginScreen.routeName: (_) {
         return const LoginScreen();
       },
-      SignupSreen.routeName: (_) {
-        return const SignupSreen();
+      SignupScreen.routeName: (_) {
+        return const SignupScreen();
       },
       NavScreen.routeName: (_) {
         return const NavScreen();

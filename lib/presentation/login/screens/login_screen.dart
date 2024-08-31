@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen>
 
     if (error != null && context.mounted) {
       setIsLoading(false);
-      showSnackBBar(context, error, MessageType.error);
+      showSnackBar(context, error, MessageType.error);
     } else {
       handleNavigation(context, NavScreen.routeName, clear: true);
     }
@@ -71,61 +71,65 @@ class _LoginScreenState extends State<LoginScreen>
       body: Form(
         key: loginCtrl.loginFormKey,
         child: Padding(
-          padding: EdgeInsets.all(SizesEnum.lg.getSize),
+          padding: EdgeInsets.symmetric(horizontal:  SizesEnum.lg.getSize),
           child: SizedBox.expand(
-            child: Column(
-              children: [
-                SizedBox(
-                  width: 150,
-                  height: 150,
-                  child: Lottie.asset(AssetsPathsConst.animationLogin),
-                ),
-                const SizedBoxWidget.md(),
-                TextWidget.title('Firebase Movies App'),
-                const SizedBoxWidget.md(),
-                TextFormFieldWidget(
-                  inputLabel: 'Email',
-                  controller: emailTEC,
-                  focusNode: emailFN,
-                  validator: EmailValidator.validate,
-                  textInputType: TextInputType.emailAddress,
-                  onFieldSubmited: (_) => passwordFN.requestFocus,
-                  textInputAction: TextInputAction.next,
-                ),
-                const SizedBoxWidget.md(),
-                TextFormFieldWidget(
-                  inputLabel: 'Senha',
-                  controller: passwordTEC,
-                  focusNode: passwordFN,
-                  isPassword: true,
-                  validator: PasswordValidator.validate,
-                  onFieldSubmited: (_) => onLogin,
-                  textInputAction: TextInputAction.go,
-                ),
-                const SizedBoxWidget.xxl(),
-                ButtonWidget(
-                  label: 'Login',
-                  onPressed: onLogin,
-                  isBlock: true,
-                  isLoading: isLoading,
-                ),
-                const SizedBoxWidget.lg(),
-                RichText(
-                  textAlign: TextAlign.center,
-                  text:
-                      TextSpan(style: const TextStyle(fontSize: 16), children: [
-                    const TextSpan(text: 'Ainda não possui uma conta? '),
-                    TextSpan(
-                      text: 'Registre aqui!',
-                      style:
-                          const TextStyle(decoration: TextDecoration.underline),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () =>
-                            handleNavigation(context, SignupSreen.routeName),
-                    )
-                  ]),
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBoxWidget.lg(),
+                  SizedBox(
+                    width: 150,
+                    height: 150,
+                    child: Lottie.asset(AssetsPathsConst.animationLogin),
+                  ),
+                  const SizedBoxWidget.md(),
+                  TextWidget.title('Firebase Movies App'),
+                  const SizedBoxWidget.md(),
+                  TextFormFieldWidget(
+                    inputLabel: 'Email',
+                    controller: emailTEC,
+                    focusNode: emailFN,
+                    validator: EmailValidator.validate,
+                    textInputType: TextInputType.emailAddress,
+                    onFieldSubmited: (_) => passwordFN.requestFocus,
+                    textInputAction: TextInputAction.next,
+                  ),
+                  const SizedBoxWidget.md(),
+                  TextFormFieldWidget(
+                    inputLabel: 'Senha',
+                    controller: passwordTEC,
+                    focusNode: passwordFN,
+                    isPassword: true,
+                    validator: PasswordValidator.validate,
+                    onFieldSubmited: (_) => onLogin,
+                    textInputAction: TextInputAction.go,
+                  ),
+                  const SizedBoxWidget.xxl(),
+                  ButtonWidget(
+                    label: 'Login',
+                    onPressed: onLogin,
+                    isBlock: true,
+                    isLoading: isLoading,
+                  ),
+                  const SizedBoxWidget.lg(),
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text:
+                        TextSpan(style: const TextStyle(fontSize: 16), children: [
+                      const TextSpan(text: 'Ainda não possui uma conta? '),
+                      TextSpan(
+                        text: 'Registre aqui!',
+                        style:
+                            const TextStyle(decoration: TextDecoration.underline),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () =>
+                              handleNavigation(context, SignupScreen.routeName),
+                      )
+                    ]),
+                  ),
+                  const SizedBoxWidget.lg(),
+                ],
+              ),
             ),
           ),
         ),
