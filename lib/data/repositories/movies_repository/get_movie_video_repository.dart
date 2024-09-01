@@ -9,7 +9,7 @@ class GetMovieVideoRepository {
   GetMovieVideoRepository(this._api);
 
   Future<(String? error, VideoModel?  video)> getMovieVideo(int movieId) async{
-    final(String? error, ApiResponseModel<Map>? response) = await _api.get('3/movie/$movieId/videos?language=pt-BR');
+    final(String? error, ApiResponseModel<Map>? response) = await _api.get('/3/movie/$movieId/videos?language=pt-BR');
 
     if(response != null){
       final results = response.data['results'] as List;
